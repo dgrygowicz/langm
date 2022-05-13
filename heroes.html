@@ -12,6 +12,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/heroes.css" />
+    <script src="/scripts/factionsdata.js"></script>
+    <script src="/scripts/heroesdata.js"></script>
+    <script src="/scripts/heroes.js" defer></script>
   </head>
   <body>
     <header>
@@ -23,7 +27,14 @@
         </ul>
       </nav>
     </header>
-    <main id="landing-main"></main>
+    <main id="heroes-main">
+      <section id="factions">
+        <ul id="factions-cards"></ul>
+      </section>
+      <section id="heroes">
+        <ul id="heroes-cards"></ul>
+      </section>
+    </main>
     <footer>
       <p>© Dawid Grygowicz 2022</p>
     </footer>
