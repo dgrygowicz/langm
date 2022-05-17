@@ -1,4 +1,4 @@
-const classesList = [
+const classesData = [
   {
     name: 'Pegasus Knight',
     imageName: 'Pegasus_Knight.png',

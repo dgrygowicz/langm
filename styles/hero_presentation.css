@@ -1,0 +1,167 @@
+h3 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0;
+}
+
+#hero-main {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+#hero-info,
+#hero-bonds {
+  display: flex;
+}
+
+#hero-info__main {
+  width: 35%;
+}
+
+#hero-name {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 900;
+  text-shadow: 1px 1px 2px rgb(74, 66, 66);
+}
+
+#hero-name li {
+  padding: 0 0.5rem;
+  vertical-align: middle;
+}
+
+#hero-name img {
+  vertical-align: middle;
+  height: 2rem;
+}
+
+#hero-faction-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#hero-faction-list li {
+  padding: 0 0.2rem;
+  height: 3.5rem;
+}
+
+#hero-bio-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#hero-bio-list li {
+  margin: 0 auto;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+#hero-info__talent {
+  width: 65%;
+}
+
+#hero-talent,
+#hero-three_point-skill,
+#hero-exclusive-equipment {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#hero-talent li,
+#hero-three_point-skill li,
+#hero-exclusive-equipment li {
+  padding: 0 0.5rem;
+}
+
+#hero-talent img,
+#hero-three_point-skill img,
+#hero-exclusive-equipment img {
+  height: 8rem;
+  width: 8rem;
+}
+
+#carouselHeroSkins {
+  width: 25rem;
+  margin: 0 auto;
+}
+
+#hero-stats,
+#hero-soldier-bonus {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#hero-stats p,
+#hero-soldier-bonus p {
+  display: inline;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+}
+
+#hero-bonds__requirements,
+#hero-bonds__related {
+  width: 50%;
+}
+
+#hero-bond-requirement,
+#hero-related-bonds {
+  list-style: none;
+  padding: 0;
+}
+
+#hero-bond-requirement li,
+#hero-related-bonds li {
+  padding: 0 0.5rem;
+}
+
+#hero-classes-list {
+  list-style: none;
+}
+
+#hero-classes-list h3 {
+  background-color: rgb(244, 247, 247);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#hero-classes-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+#hero-classes-list li:last-of-type {
+  flex-grow: 1;
+}
+
+#hero-classes-list ul img {
+  height: 8rem;
+  width: 8rem;
+}
+
+#hero-classes-list ul h5 {
+  text-align: center;
+}

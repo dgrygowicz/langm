@@ -1,4 +1,4 @@
-const skillList = [
+const skillData = [
   {
     name: 'Breath of the Tides',
     imageName: 'Breath_of_the_Tides.png',
@@ -7,7 +7,7 @@ const skillList = [
     range: 3,
     span: 'Straight',
     description:
-      '[Physical Damage] Attacks a single enemy, dealing 1.5x damage. If the enemy is defeated, the cooldown of this skill is decreased by 3.',
+      "Attacks all enemies in 3 straight lines, dealing 0.2x AoE damage and pushing them back 3 blocks. If you are in Water, you'll have a 20% chance to [Freeze] the enemy for 1 turn. If this skill hits 3 or more enemies, you can take an additional action. (This act again effect can only trigger once per round).",
   },
   {
     name: 'Lightning',
@@ -23,9 +23,9 @@ const skillList = [
     name: 'Lonely Moon',
     imageName: 'Lonely_Moon.png',
     cost: 1,
-    cd: 0,
-    range: 0,
-    span: 0,
+    cd: '-',
+    range: '-',
+    span: '-',
     description:
       "[Passive] When initiating a melee attack, hero's damage is reduced by 20%. After taking action, if your soldiers are all dead, you can act again. This effect has a 3-turn cooldown.",
   },
@@ -43,9 +43,9 @@ const skillList = [
     name: 'ATK Command',
     imageName: 'ATK_Command.png',
     cost: 2,
-    cd: 0,
-    range: 0,
-    span: 0,
+    cd: '-',
+    range: '-',
+    span: '-',
     description:
       '[Passive] ATK & INT of all allies within 2 blocks increases by 10%.',
   },
@@ -53,9 +53,9 @@ const skillList = [
     name: 'DEF Support (L)',
     imageName: 'DEF_Support_(L).png',
     cost: 2,
-    cd: 0,
-    range: 0,
-    span: 0,
+    cd: '-',
+    range: '-',
+    span: '-',
     description:
       '[Passive] After taking action, 2 friendly units within 2 blocks by gain "Damage Taken -15%" and Immunity to: DEF & MDEF down and Cannot be Healed. Lasts 1 turn.',
   },
@@ -73,9 +73,9 @@ const skillList = [
     name: 'ATK Intimidate',
     imageName: 'ATK_Intimidate.png',
     cost: 2,
-    cd: 0,
-    range: 0,
-    span: 0,
+    cd: '-',
+    range: '-',
+    span: '-',
     description:
       '[Passive] After taking action, decreases ATK & INT of all enemies within 2 surrounding blocks by 15%. Lasts 1 turn.',
   },

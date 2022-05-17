@@ -1,4 +1,4 @@
-const soldiersList = [
+const soldiersData = [
   {
     name: 'Hawk Rider',
     type: 'Flier',
