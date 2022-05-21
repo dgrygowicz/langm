@@ -1,0 +1,30 @@
+{
+  "name": "langrissermobile",
+  "version": "1.0.0",
+  "description": "Langrisser Mobile - Learning Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgrygowicz/langm.git"
+  },
+  "keywords": [
+    "langrisser",
+    "mobile"
+  ],
+  "author": "Dawid Grygowicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dgrygowicz/langm/issues"
+  },
+  "homepage": "https://github.com/dgrygowicz/langm#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

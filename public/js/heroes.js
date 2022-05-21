@@ -61,7 +61,7 @@ class Heroes {
       heroElement.className = 'hero-card';
 
       heroElement.innerHTML = `
-      <a href="/heroes/${heroName.toLowerCase()}.html">
+      <a href="/heroes/${heroName.toLowerCase()}">
       <img src="/images/heroes_cards/${heroImage}"/>
     </a>
     <p>${heroName}</p>`;
