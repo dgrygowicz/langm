@@ -10,7 +10,7 @@ router.get('/heroes', (req, res) => {
   res.sendFile(path.join(rootDir, 'views', 'heroes.html'));
 });
 
-router.get('/heroes/angelina', (req, res) => {
+router.get('/angelina', (req, res) => {
   res.sendFile(path.join(rootDir, 'views', 'angelina.html'));
 });
 
