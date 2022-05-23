@@ -30,7 +30,7 @@ router.get('/hero/:name', (req, res) => {
   const hero = heroes.find(hero => hero.name === req.params.name);
   if (hero) {
     return res.render('hero', {
-      angelina: hero,
+      hero: hero,
       factions: factions,
       skills: skills,
       equipments: equipments,

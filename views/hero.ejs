@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('includes/head') %> 
+    <%- include('includes/head') %>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,92 +29,56 @@
       <section id="hero-info">
         <section id="hero-info__main">
           <ul id="hero-name">
-            <li><%= angelina.name %></li>
-            <li><img src="/images/icons/<%= angelina.rarity %>.png" /></li>
+            <%- include('includes/hero/hero-name-items', { hero: hero }) %>
           </ul>
-          <h3>Voice Actor: <%= angelina.voiceActor %></h3>
+          <h3>Voice Actor: <%= hero.voiceActor %></h3>
           <ul id="hero-faction-list">
-            <% for (const faction of angelina.factions) { %>
-            <li>
-              <img
-                src="/images/factions/<%= factions.find(f => f.name === faction).imageName %>"
-              />
-            </li>
-            <% } %>
+            <% for (const faction of hero.factions) { %> <%-
+            include('includes/hero/hero-faction-item', { faction: faction,
+            factions: factions }) %> <% } %>
           </ul>
           <ul id="hero-bio-list">
             <h3>Hero Info</h3>
-            <% for (const info in angelina.bio) { %>
-            <li><%= info %>: <%= angelina.bio[info] %></li>
-            <% } %>
+            <% for (const info in hero.bio) { %> <%-
+            include('includes/hero/hero-bio-item', { hero: hero, info: info })
+            %> <% } %>
           </ul>
-          <div id="carouselHeroSkins" class="carousel slide carousel-dark" data-bs-ride="true">
-            <div class="carousel-indicators">
-              <% for (let i = 0; i < angelina.skinsNames.length; i++) { %> 
-                <button type="button" data-bs-target="#carouselHeroSkins" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i + 1 %>"
-                  <% if (i === 0) { %> class="active" aria-current="true" <% } %>  ></button>
-              <% } %> 
-            </div>
-            <div class="carousel-inner">
-              <% angelina.skinsNames.forEach((skinName, id) => { %> 
-              <div class="carousel-item <% if (id === 0) { %> active <% } %>">
-                <img
-                  src="/images/heroes_skins/<%= skinName %> "
-                  class="d-block w-100"/>
-              </div>
-              <% }) %> 
-            </div>
+          <div
+            id="carouselHeroSkins"
+            class="carousel slide carousel-dark"
+            data-bs-ride="true"
+          >
+            <%- include('includes/hero/hero-skins', { hero: hero }) %>
           </div>
         </section>
         <section id="hero-info__talent">
-          <% const skill = skills.find(s => s.name === angelina.threePointSkill) %> 
-          <% const equipment = equipments.find(e => e.name === angelina.exlEquipment) %> 
+          <% const skill = skills.find(s => s.name === hero.threePointSkill) %>
+          <% const equipment = equipments.find(e => e.name ===
+          hero.exlEquipment) %>
           <ul id="hero-talent">
-            <li><img src="/images/heroes_talents/<%= angelina.talent.imageName %> "></li>
-            <li>
-              <h3>Talent: <%= angelina.talent.name %> </h3>
-              <p><%= angelina.talent.description %> </p>
-            </li>
+            <%- include('includes/hero/hero-talent-items', { hero: hero }) %>
           </ul>
           <ul id="hero-three_point-skill">
-            <li><img src="/images/skills/<%= skill.imageName %> "></li>
-            <li>
-              <h3>Awakening skill: <%= skill.name %> </h3>
-              <p>Cost: <%= skill.cost %>  | Cd: <%= skill.cd %>  | Range: <%= skill.range %>  | Span: <%= skill.span %> </p>
-              <p><%= skill.description %> </p>
-            </li>
+            <%- include('includes/hero/hero-three_point-skill-items', { skill:
+            skill }) %>
           </ul>
           <ul id="hero-exclusive-equipment">
-            <li><img src="/images/eq_exclusives/<%= equipment.imageName %> "></li>
-            <li>
-              <h3>Awakening skill: <%= equipment.name %> </h3>
-              <p>Type: <%= equipment.type %> </p>
-              <p><%= equipment.description %> </p>
-            </li>
+            <%- include('includes/hero/hero-exclusive-equipment-items', {
+            equipment: equipment }) %>
           </ul>
           <h3>Max Stats</h3>
-          <% angelina.maxStats.forEach(heroStats => { %> 
+          <% hero.maxStats.forEach(heroStats => { %>
           <ul id="hero-stats">
-          <% for (const stat in heroStats) { %> 
-            <li>
-              <% if (stat === 'className') { %> 
-                <p><strong><%= heroStats[stat] %> </strong></p>
-              <% } else { %> 
-                <img src="/images/icons/<%= stat %>.png"/>
-                <p><%= heroStats[stat] %> </p>
-              <% } %> 
-            </li>
-          <% } %> 
+            <% for (const stat in heroStats) { %> <%-
+            include('includes/hero/hero-stats-item', { stat: stat, heroStats:
+            heroStats }) %> <% } %>
           </ul>
-          <% }) %> 
+          <% }) %>
           <h3>Soldier Bonus</h3>
           <ul id="hero-soldier-bonus">
-          <% for (const soldierStat in angelina.soldierBonus) { %> 
-            <li>
-              <img src="/images/icons/<%= soldierStat %>.png"/>
-              <p><%= angelina.soldierBonus[soldierStat] %> </p>
-            </li>
-          <% } %> 
+            <% for (const soldierStat in hero.soldierBonus) { %> <%-
+            include('includes/hero/hero-soldier-bonus-item', { hero: hero,
+            soldierStat: soldierStat }) %> <% } %>
           </ul>
         </section>
       </section>
@@ -122,62 +86,36 @@
         <section id="hero-bonds__requirements">
           <h3>Bonds Requirements</h3>
           <ul id="hero-bond-requirement">
-            <% for (const requirement in angelina.bondRequirement) { %> 
-              <li>
-                <p><strong><%= requirement %> </strong>: <%= angelina.bondRequirement[requirement] %> </p>
-              </li>
-            <% } %> 
+            <% for (const requirement in hero.bondRequirement) { %> <%-
+            include('includes/hero/hero-bond-requirement-item', { hero: hero,
+            requirement: requirement }) %> <% } %>
           </ul>
         </section>
         <section id="hero-bonds__related">
           <h3>Related Bonds</h3>
           <ul id="hero-related-bonds">
-            <% for (const relation in angelina.relatedBonds) { %> 
-              <li>
-                <p><strong><%= relation %> </strong>: <%= angelina.relatedBonds[relation] %> </p>
-              </li>
-            <% } %> 
+            <% for (const relation in hero.relatedBonds) { %> <%-
+            include('includes/hero/hero-related-bonds-item', { hero: hero,
+            relation: relation }) %> <% } %>
           </ul>
         </section>
       </section>
       <section id="hero-classes">
         <h3>Classes and Soldiers</h3>
         <ul id="hero-classes-list">
-          <% angelina.classes.forEach(heroClass => { %> 
+          <% hero.classes.forEach(heroClass => { %> <%-
+          include('includes/hero/hero-classes-item', { classes: classes,
+          heroClass: heroClass, skills: skills }) %> <% }) %>
+          <h3>Training Ground Soldiers</h3>
+          <ul>
+            <% for (const soldier of hero.trainingGroundSoldiers) { %>
             <li>
-              <h3>
-                <img src="/images/heroes_classes/<%= classes.find(c => c.name === heroClass.name).imageName %>" />
-                <p><%= heroClass.name %> </p>
-              </h3>
-              <% for (const skill of heroClass.skills) { %> 
-                <% const heroSkill = skills.find(s => s.name === skill); %>
-              <ul>
-                <li>
-                  <img src="/images/skills/<%= heroSkill.imageName %> " />
-                </li>
-                <li>
-                  <h5><strong><%= heroSkill.name %></strong></h5>
-                  <p>Cost: <%= heroSkill.cost %>  | Cd: <%= heroSkill.cd %>  | Range: <%= heroSkill.range %>  | Span: <%= heroSkill.span %> </p>
-                  <p><%= heroSkill.description %> </p>
-                </li>
-              </ul>
-              <% } %>
-              <ul>
-                <% for (const soldier of heroClass.soldiers) { %>
-                  <% const heroSoldier = soldiers.find(s => s.name === soldier) %>
-                  <img src="/images/soldiers_cards/<%= heroSoldier.cardName %> " />
-                <% } %> 
-              </ul> 
+              <img
+                src="/images/soldiers_cards/<%= soldiers.find(s => s.name === soldier).cardName %> "
+              />
             </li>
-            <% }) %>
-            <h3>Training Ground Soldiers</h3>
-            <ul>
-              <% for (const soldier of angelina.trainingGroundSoldiers) { %> 
-              <li>
-                <img src="/images/soldiers_cards/<%= soldiers.find(s => s.name === soldier).cardName %> ">
-              </li>
-              <% } %> 
-            </ul>
+            <% } %>
+          </ul>
         </ul>
       </section>
     </main>

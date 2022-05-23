@@ -1,0 +1,8 @@
+<li>
+  <% if (stat === 'className') { %>
+  <p><strong><%= heroStats[stat] %> </strong></p>
+  <% } else { %>
+  <img src="/images/icons/<%= stat %>.png" />
+  <p><%= heroStats[stat] %></p>
+  <% } %>
+</li>

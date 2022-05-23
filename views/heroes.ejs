@@ -10,31 +10,15 @@
     <main id="heroes-main">
       <section id="factions">
         <ul id="factions-cards">
-          <% for (const faction of factions) { %>
-          <li id="<%= faction.name %>">
-            <img
-              src="/images/factions/<%= faction.imageName %>"
-              alt="<%= faction.name %>"
-            />
-          </li>
+          <% for (const faction of factions) { %> <%-
+          include('includes/heroes/factions-cards-item', {faction: faction}) %>
           <% } %>
         </ul>
       </section>
       <section id="heroes">
         <ul id="heroes-cards">
-          <% for (const hero of heroes) { %>
-
-          <li
-            id="<%= hero.name %>"
-            class="hero-card"
-            data-bs-factions="<%= hero.factions %>"
-          >
-            <a href="/hero/<%= hero.name %>">
-              <img src="/images/heroes_cards/<%= hero.cardName %> " />
-            </a>
-            <p><%= hero.name %></p>
-          </li>
-          <% } %>
+          <% for (const hero of heroes) { %><%-
+          include('includes/heroes/heroes-cards-item', {hero: hero}) %> <% } %>
         </ul>
       </section>
     </main>
