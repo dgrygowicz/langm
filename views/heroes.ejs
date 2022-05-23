@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head') %>
+    <link rel="stylesheet" href="/css/heroes.css" />
+    <script src="/js/heroes.js" defer></script>
+  </head>
+  <body>
+    <%- include('includes/navigation-header') %>
+    <main id="heroes-main">
+      <section id="factions">
+        <ul id="factions-cards">
+          <% for (const faction of factions) { %>
+          <li id="<%= faction.name %>">
+            <img
+              src="/images/factions/<%= faction.imageName %>"
+              alt="<%= faction.name %>"
+            />
+          </li>
+          <% } %>
+        </ul>
+      </section>
+      <section id="heroes">
+        <ul id="heroes-cards">
+          <% for (const hero of heroes) { %>
+
+          <li
+            id="<%= hero.name %>"
+            class="hero-card"
+            data-bs-factions="<%= hero.factions %>"
+          >
+            <a href="/hero?name=<%= hero.name %>">
+              <img src="/images/heroes_cards/<%= hero.cardName %> " />
+            </a>
+            <p><%= hero.name %></p>
+          </li>
+          <% } %>
+        </ul>
+      </section>
+    </main>
+    <%- include('includes/footer') %>
+  </body>
+</html>
+
+const filteredHeroes = heroesList.filter(hero => { return
+filteredFactions.every(faction => { return hero.factions.includes(faction); });
+}); const heroElements = document.querySelectorAll('#heroes-cards li'); if
+(filteredHeroes.length > 0) { heroElements.forEach(el => { if (
+filteredFactions.length === 0 || el.getAttribute('id') ===
+filteredHeroes[0].name ) { el.classList.remove('visibility'); } else {
+el.classList.add('visibility'); } }); } else { heroElements.forEach(el =>
+el.classList.add('visibility')); }
