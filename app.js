@@ -32,7 +32,7 @@ app.get('/heroes', (req, res) => {
   });
 });
 
-app.get('/hero', (req, res) => {
+app.get('/hero/:name', (req, res) => {
   const heroesFilePath = path.join(__dirname, 'data', 'heroes.json');
   const heroesFileData = fs.readFileSync(heroesFilePath);
   const heroes = JSON.parse(heroesFileData);
@@ -51,16 +51,21 @@ app.get('/hero', (req, res) => {
   const soldiersFilePath = path.join(__dirname, 'data', 'soldiers.json');
   const soldiersFileData = fs.readFileSync(soldiersFilePath);
   const soldiers = JSON.parse(soldiersFileData);
-  const hero = heroes.find(hero => hero.name === req.query.name);
-  res.render('hero', {
-    angelina: hero,
-    factions: factions,
-    skills: skills,
-    equipments: equipments,
-    classes: classes,
-    soldiers: soldiers,
-    pageTitle: 'Langrisser Mobile - ' + hero.name,
-  });
+  const hero = heroes.find(hero => hero.name === req.params.name);
+  if (hero) {
+    return res.render('hero', {
+      angelina: hero,
+      factions: factions,
+      skills: skills,
+      equipments: equipments,
+      classes: classes,
+      soldiers: soldiers,
+      pageTitle: 'Langrisser Mobile - ' + hero.name,
+    });
+  }
+  res
+    .status(404)
+    .render('404', { pageTitle: 'Langrisser Mobile - Page Not Found' });
 });
 
 app.get('/soldiers', (req, res) => {
@@ -75,6 +80,12 @@ app.use((req, res, next) => {
   res
     .status(404)
     .render('404', { pageTitle: 'Langrisser Mobile - Page Not Found' });
+});
+
+app.use((error, req, res, next) => {
+  res
+    .status(500)
+    .render('500', { pageTitle: 'Langrisser Mobile - Server Error' });
 });
 
 app.listen(3000);
