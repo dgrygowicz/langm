@@ -12,42 +12,17 @@ function filterHeroes(event) {
   }
 
   const heroes = Array.from(document.querySelectorAll('#heroes-cards li'));
-  let filteredHeroes = [];
-  let noFilteredHeroes = [];
 
-  if (filteredFactions.length > 0) {
-    filteredHeroes = heroes.filter(hero => {
-      return filteredFactions.every(faction => {
-        return hero
-          .getAttribute('data-bs-factions')
-          .split(',')
-          .includes(faction);
-      });
-    });
-
-    noFilteredHeroes = heroes.filter(hero => {
-      return !filteredFactions.every(faction => {
-        return hero
-          .getAttribute('data-bs-factions')
-          .split(',')
-          .includes(faction);
-      });
-    });
-
-    filteredHeroes.forEach(el => {
-      el.classList.remove('visibility');
-    });
-    noFilteredHeroes.forEach(el => {
-      el.classList.add('visibility');
-    });
-  } else {
-    heroes.forEach(el => {
-      el.classList.remove('visibility');
-    });
-  }
+  heroes.forEach(hero => {
+    filteredFactions.every(faction => {
+      return hero.getAttribute('data-bs-factions').split(',').includes(faction);
+    })
+      ? hero.classList.remove('visibility')
+      : hero.classList.add('visibility');
+  });
 }
 
-function renderFactions() {
+function factionHandler() {
   const factionElements = document.querySelectorAll('#factions-cards li');
 
   for (const factionElement of factionElements) {
@@ -55,4 +30,4 @@ function renderFactions() {
   }
 }
 
-renderFactions();
+factionHandler();

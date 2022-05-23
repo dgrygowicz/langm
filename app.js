@@ -51,7 +51,6 @@ app.get('/hero', (req, res) => {
   const soldiersFilePath = path.join(__dirname, 'data', 'soldiers.json');
   const soldiersFileData = fs.readFileSync(soldiersFilePath);
   const soldiers = JSON.parse(soldiersFileData);
-  console.log(req.query);
   const hero = heroes.find(hero => hero.name === req.query.name);
   res.render('hero', {
     angelina: hero,
