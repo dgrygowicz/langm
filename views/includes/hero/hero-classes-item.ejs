@@ -1,0 +1,30 @@
+<li>
+  <h3>
+    <img
+      src="/images/heroes_classes/<%= classes.find(c => c.name === heroClass.name).imageName %>"
+    />
+    <p><%= heroClass.name %></p>
+  </h3>
+  <% for (const skill of heroClass.skills) { %> <% const heroSkill =
+  skills.find(s => s.name === skill); %>
+  <ul>
+    <li>
+      <img src="/images/skills/<%= heroSkill.imageName %> " />
+    </li>
+    <li>
+      <h5><strong><%= heroSkill.name %></strong></h5>
+      <p>
+        Cost: <%= heroSkill.cost %> | Cd: <%= heroSkill.cd %> | Range: <%=
+        heroSkill.range %> | Span: <%= heroSkill.span %>
+      </p>
+      <p><%= heroSkill.description %></p>
+    </li>
+  </ul>
+  <% } %>
+  <ul>
+    <% for (const soldier of heroClass.soldiers) { %> <% const heroSoldier =
+    soldiers.find(s => s.name === soldier) %>
+    <img src="/images/soldiers_cards/<%= heroSoldier.cardName %> " />
+    <% } %>
+  </ul>
+</li>

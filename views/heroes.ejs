@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head') %>
+    <link rel="stylesheet" href="/css/heroes.css" />
+    <script src="/js/heroes.js" defer></script>
+  </head>
+  <body>
+    <%- include('includes/navigation-header') %>
+    <main id="heroes-main">
+      <section id="factions">
+        <ul id="factions-cards">
+          <% for (const faction of factions) { %> <%-
+          include('includes/heroes/factions-cards-item', {faction: faction}) %>
+          <% } %>
+        </ul>
+      </section>
+      <section id="heroes">
+        <ul id="heroes-cards">
+          <% for (const hero of heroes) { %><%-
+          include('includes/heroes/heroes-cards-item', {hero: hero}) %> <% } %>
+        </ul>
+      </section>
+    </main>
+    <%- include('includes/footer') %>
+  </body>
+</html>
