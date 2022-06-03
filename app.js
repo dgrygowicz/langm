@@ -1,19 +1,17 @@
-const path = require('path');
-
 const express = require('express');
 
-const soldiersRoutes = require('./routes/soldiers');
-const heroesRoutes = require('./routes/heroes');
+const soldierRouter = require('./routes/soldierRoutes');
+const heroRouter = require('./routes/heroRoutes');
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(`${__dirname}/public`));
 
-app.use('/', soldiersRoutes);
-app.use('/', heroesRoutes);
+app.use('/soldiers', soldierRouter);
+app.use('/heroes', heroRouter);
 
 app.get('/', (req, res) => {
   res.render('index', { pageTitle: 'Langrisser Mobile - Home' });

@@ -1,26 +1,19 @@
-const path = require('path');
-const fs = require('fs');
-
-const express = require('express');
-
 const data = require('../util/data');
 
-const router = express.Router();
-
-router.get('/heroes', (req, res) => {
+exports.getAllHeroes = (req, res) => {
   const factions = data.getData('factions.json');
   factions.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
 
   const heroes = data.getData('heroes.json');
   heroes.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
   res.render('heroes', {
-    factions: factions,
-    heroes: heroes,
+    factions,
+    heroes,
     pageTitle: 'Langrisser Mobile - Heroes',
   });
-});
+};
 
-router.get('/hero/:name', (req, res) => {
+exports.getHero = (req, res) => {
   const heroes = data.getData('heroes.json');
   const factions = data.getData('factions.json');
   const skills = data.getData('skills.json');
@@ -30,18 +23,16 @@ router.get('/hero/:name', (req, res) => {
   const hero = heroes.find(hero => hero.name === req.params.name);
   if (hero) {
     return res.render('hero', {
-      hero: hero,
-      factions: factions,
-      skills: skills,
-      equipments: equipments,
-      classes: classes,
-      soldiers: soldiers,
+      hero,
+      factions,
+      skills,
+      equipments,
+      classes,
+      soldiers,
       pageTitle: 'Langrisser Mobile - ' + hero.name,
     });
   }
   res
     .status(404)
     .render('404', { pageTitle: 'Langrisser Mobile - Page Not Found' });
-});
-
-module.exports = router;
+};
