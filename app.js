@@ -29,4 +29,4 @@ app.use((error, req, res, next) => {
     .render('500', { pageTitle: 'Langrisser Mobile - Server Error' });
 });
 
-app.listen(3000);
+module.exports = app;
