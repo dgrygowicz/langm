@@ -1,30 +1,26 @@
 <li>
   <h3>
-    <img
-      src="/images/heroes_classes/<%= classes.find(c => c.name === heroClass.name).imageName %>"
-    />
-    <p><%= heroClass.name %></p>
+    <img src="/images/heroes_classes/<%= heroClass.class.imageName %>" />
+    <p><%= heroClass.class.name %></p>
   </h3>
-  <% for (const skill of heroClass.skills) { %> <% const heroSkill =
-  skills.find(s => s.name === skill); %>
+  <% for (const skill of heroClass.skills) { %>
   <ul>
     <li>
-      <img src="/images/skills/<%= heroSkill.imageName %> " />
+      <img src="/images/skills/<%= skill.imageName %> " />
     </li>
     <li>
-      <h5><strong><%= heroSkill.name %></strong></h5>
+      <h5><strong><%= skill.name %></strong></h5>
       <p>
-        Cost: <%= heroSkill.cost %> | Cd: <%= heroSkill.cd %> | Range: <%=
-        heroSkill.range %> | Span: <%= heroSkill.span %>
+        Cost: <%= skill.cost %> | Cd: <%= skill.cd %> | Range: <%= skill.range
+        %> | Span: <%= skill.span %>
       </p>
-      <p><%= heroSkill.description %></p>
+      <p><%= skill.description %></p>
     </li>
   </ul>
   <% } %>
   <ul>
-    <% for (const soldier of heroClass.soldiers) { %> <% const heroSoldier =
-    soldiers.find(s => s.name === soldier) %>
-    <img src="/images/soldiers_cards/<%= heroSoldier.cardName %> " />
+    <% for (const soldier of heroClass.soldiers) { %>
+    <img src="/images/soldiers_cards/<%= soldier.cardImageName %> " />
     <% } %>
   </ul>
 </li>

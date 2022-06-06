@@ -1,3 +1,18 @@
 <li>
-  <p><strong><%= relation %> </strong>: <%= hero.relatedBonds[relation] %></p>
+  <p>
+    <strong><%= hero.relatedBonds.first.name %> </strong>: <%=
+    hero.relatedBonds.first.description %>
+  </p>
+</li>
+<li>
+  <p>
+    <strong><%= hero.relatedBonds.second.name %> </strong>: <%=
+    hero.relatedBonds.second.description %>
+  </p>
+</li>
+<li>
+  <p>
+    <strong><%= hero.relatedBonds.third.name %> </strong>: <%=
+    hero.relatedBonds.third.description %>
+  </p>
 </li>

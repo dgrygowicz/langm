@@ -12,7 +12,6 @@ function filterHeroes(event) {
   }
 
   const heroes = Array.from(document.querySelectorAll('#heroes-cards li'));
-
   heroes.forEach(hero => {
     filteredFactions.every(faction => {
       return hero.getAttribute('data-bs-factions').split(',').includes(faction);
@@ -24,7 +23,6 @@ function filterHeroes(event) {
 
 function factionHandler() {
   const factionElements = document.querySelectorAll('#factions-cards li');
-
   for (const factionElement of factionElements) {
     factionElement.addEventListener('click', filterHeroes);
   }

@@ -1,8 +1,27 @@
 <li>
-  <% if (stat === 'className') { %>
-  <p><strong><%= heroStats[stat] %> </strong></p>
-  <% } else { %>
-  <img src="/images/icons/<%= stat %>.png" />
-  <p><%= heroStats[stat] %></p>
-  <% } %>
+  <p><strong><%= heroStats.class.name %> </strong></p>
+</li>
+<li>
+  <img src="/images/icons/HP.png" />
+  <p><%= heroStats.HP %></p>
+</li>
+<li>
+  <img src="/images/icons/ATK.png" />
+  <p><%= heroStats.ATK %></p>
+</li>
+<li>
+  <img src="/images/icons/INT.png" />
+  <p><%= heroStats.INT %></p>
+</li>
+<li>
+  <img src="/images/icons/DEF.png" />
+  <p><%= heroStats.DEF %></p>
+</li>
+<li>
+  <img src="/images/icons/MDEF.png" />
+  <p><%= heroStats.MDEF %></p>
+</li>
+<li>
+  <img src="/images/icons/SKL.png" />
+  <p><%= heroStats.SKL %></p>
 </li>

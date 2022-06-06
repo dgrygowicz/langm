@@ -29,56 +29,48 @@
       <section id="hero-info">
         <section id="hero-info__main">
           <ul id="hero-name">
-            <%- include('includes/hero/hero-name-items', { hero: hero }) %>
+            <%- include('includes/hero/hero-name-items', { hero }) %>
           </ul>
           <h3>Voice Actor: <%= hero.voiceActor %></h3>
           <ul id="hero-faction-list">
             <% for (const faction of hero.factions) { %> <%-
-            include('includes/hero/hero-faction-item', { faction: faction,
-            factions: factions }) %> <% } %>
+            include('includes/hero/hero-faction-item', { faction }) %> <% } %>
           </ul>
           <ul id="hero-bio-list">
             <h3>Hero Info</h3>
-            <% for (const info in hero.bio) { %> <%-
-            include('includes/hero/hero-bio-item', { hero: hero, info: info })
-            %> <% } %>
+            <%- include('includes/hero/hero-bio-item', { hero }) %>
           </ul>
           <div
             id="carouselHeroSkins"
             class="carousel slide carousel-dark"
             data-bs-ride="true"
           >
-            <%- include('includes/hero/hero-skins', { hero: hero }) %>
+            <%- include('includes/hero/hero-skins', { hero }) %>
           </div>
         </section>
         <section id="hero-info__talent">
-          <% const skill = skills.find(s => s.name === hero.threePointSkill) %>
-          <% const equipment = equipments.find(e => e.name ===
-          hero.exlEquipment) %>
+          <% const skill = hero.threePointSkill %> <% const equipment =
+          hero.exlEquipment %>
           <ul id="hero-talent">
-            <%- include('includes/hero/hero-talent-items', { hero: hero }) %>
+            <%- include('includes/hero/hero-talent-items', { hero }) %>
           </ul>
           <ul id="hero-three_point-skill">
-            <%- include('includes/hero/hero-three_point-skill-items', { skill:
-            skill }) %>
+            <%- include('includes/hero/hero-three_point-skill-items', { skill })
+            %>
           </ul>
           <ul id="hero-exclusive-equipment">
             <%- include('includes/hero/hero-exclusive-equipment-items', {
-            equipment: equipment }) %>
+            equipment }) %>
           </ul>
           <h3>Max Stats</h3>
           <% hero.maxStats.forEach(heroStats => { %>
           <ul id="hero-stats">
-            <% for (const stat in heroStats) { %> <%-
-            include('includes/hero/hero-stats-item', { stat: stat, heroStats:
-            heroStats }) %> <% } %>
+            <%- include('includes/hero/hero-stats-item', { heroStats }) %>
           </ul>
           <% }) %>
           <h3>Soldier Bonus</h3>
           <ul id="hero-soldier-bonus">
-            <% for (const soldierStat in hero.soldierBonus) { %> <%-
-            include('includes/hero/hero-soldier-bonus-item', { hero: hero,
-            soldierStat: soldierStat }) %> <% } %>
+            <%- include('includes/hero/hero-soldier-bonus-item', { hero }) %>
           </ul>
         </section>
       </section>
@@ -86,17 +78,13 @@
         <section id="hero-bonds__requirements">
           <h3>Bonds Requirements</h3>
           <ul id="hero-bond-requirement">
-            <% for (const requirement in hero.bondRequirement) { %> <%-
-            include('includes/hero/hero-bond-requirement-item', { hero: hero,
-            requirement: requirement }) %> <% } %>
+            <%- include('includes/hero/hero-bond-requirement-item', { hero }) %>
           </ul>
         </section>
         <section id="hero-bonds__related">
           <h3>Related Bonds</h3>
           <ul id="hero-related-bonds">
-            <% for (const relation in hero.relatedBonds) { %> <%-
-            include('includes/hero/hero-related-bonds-item', { hero: hero,
-            relation: relation }) %> <% } %>
+            <%- include('includes/hero/hero-related-bonds-item', { hero }) %>
           </ul>
         </section>
       </section>
@@ -104,15 +92,12 @@
         <h3>Classes and Soldiers</h3>
         <ul id="hero-classes-list">
           <% hero.classes.forEach(heroClass => { %> <%-
-          include('includes/hero/hero-classes-item', { classes: classes,
-          heroClass: heroClass, skills: skills }) %> <% }) %>
+          include('includes/hero/hero-classes-item', { heroClass }) %> <% }) %>
           <h3>Training Ground Soldiers</h3>
           <ul>
             <% for (const soldier of hero.trainingGroundSoldiers) { %>
             <li>
-              <img
-                src="/images/soldiers_cards/<%= soldiers.find(s => s.name === soldier).cardName %> "
-              />
+              <img src="/images/soldiers_cards/<%= soldier.cardImageName %> " />
             </li>
             <% } %>
           </ul>

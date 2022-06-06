@@ -1,10 +1,8 @@
-<li
-  id="<%= hero.name %>"
-  class="hero-card"
-  data-bs-factions="<%= hero.factions %>"
->
+<% let factions = '' %> <% for (const faction of hero.factions) { factions =
+factions + faction.name+','; } %>
+<li id="<%= hero.name %>" class="hero-card" data-bs-factions="<%= factions %>">
   <a href="/heroes/<%= hero.name %>">
-    <img src="/images/heroes_cards/<%= hero.cardName %> " />
+    <img src="/images/heroes_cards/<%= hero.cardImageName %> " />
   </a>
   <p><%= hero.name %></p>
 </li>
