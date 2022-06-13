@@ -1,3 +1,5 @@
 exports.getAllSoldiers = (req, res) => {
-  res.render('soldiers', { pageTitle: 'Langrisser Mobile - Soldiers' });
+  res.render('soldier/index', {
+    pageTitle: 'Langrisser Mobile - Soldiers',
+  });
 };

@@ -15,7 +15,7 @@ exports.getAllHeroes = async (req, res) => {
     .populate({ path: 'maxStats', populate: { path: 'class', select: 'name' } })
     .populate('trainingGroundSoldiers');
   heroes.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
-  res.render('heroes', {
+  res.render('hero/index', {
     factions,
     heroes,
     pageTitle: 'Langrisser Mobile - Heroes',
@@ -23,21 +23,10 @@ exports.getAllHeroes = async (req, res) => {
 };
 
 exports.getHero = async (req, res) => {
-  // const heroes = data.getData('heroes.json');
-  // const factions = data.getData('factions.json');
-  // const skills = data.getData('skills.json');
-  // const equipments = data.getData('equipments.json');
-  // const classes = data.getData('classes.json');
-  // const soldiers = data.getData('soldiers.json');
   const hero = await Hero.findByName(req.params.name);
   if (hero) {
-    return res.render('hero', {
+    return res.render('hero/hero-detail', {
       hero,
-      // factions,
-      // skills,
-      // equipments,
-      // classes,
-      // soldiers,
       pageTitle: 'Langrisser Mobile - ' + hero.name,
     });
   }
