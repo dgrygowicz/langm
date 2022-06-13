@@ -1,7 +1,5 @@
-const data = require('../util/data');
 const Faction = require('../models/factionModel');
 const Hero = require('../models/heroModel');
-require('../models/factionModel');
 
 exports.getAllHeroes = async (req, res) => {
   const factions = await Faction.find();
